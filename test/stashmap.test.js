@@ -10,6 +10,22 @@ describe('Stashmap', function(){
 
   //
   //
+  describe('#constructor', function(){
+    //
+    //
+    it('should create a map from an existing hash', function(){
+      var map = new Stashmap({
+        a: 1,
+        b: 2
+      });
+      
+      expect(map.get('b')).to.be(2);
+    });
+
+  });
+
+  //
+  //
   describe('#length', function(){
     //
     //
