@@ -1,7 +1,7 @@
 {
   "name": "stashmap",
   "description": "Stash key/values with a map like interface",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Sebastian Herrlinger <sebastian@kosmokommando.com>",
   "license": "MIT",
   "repository": {
