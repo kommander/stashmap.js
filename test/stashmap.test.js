@@ -140,6 +140,25 @@ describe('Stashmap', function(){
       expect(spy.callCount).to.be(2);
     });
 
+    //
+    //
+    it('should stop iteration when forEach callback returns false explicitly', function(){
+      var spy = sinon.spy();
+      
+      var map = new Stashmap({
+        a: 1,
+        b: 2,
+        c: 3
+      }).forEach(function(value, key){
+        if(value > 2) {
+          return false;
+        }
+        spy();
+      });
+      
+      expect(spy.callCount).to.be(2);
+    });
+
   });
 
 });
