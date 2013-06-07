@@ -112,6 +112,31 @@ describe('Stashmap', function(){
 
   //
   //
+  describe('#map()', function(){
+    //
+    //
+    it('should return an array with mapped values', function(){
+      var map = new Stashmap();
+      map.set('a', 1);
+      map.set('b', 2);
+      map.set('c', 1);
+      map.set('d', 2);
+      
+      var arr = map.map(function(value, key){
+        if(value == 1){
+          return value;
+        }
+        return false;
+      });
+
+      expect(arr).to.have.property('length', 2);
+
+    });
+
+  });
+
+  //
+  //
   describe('#forEach()', function(){
     //
     //
