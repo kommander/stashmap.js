@@ -137,6 +137,27 @@ describe('Stashmap', function(){
 
   //
   //
+  describe('#merge()', function(){
+    //
+    //
+    it('should add the key/values of another instance to this one', function(){
+      var map = new Stashmap();
+      map.set('a', 1);
+      map.set('b', 2);
+      map.set('c', 1);
+      map.set('d', 2);
+      
+      var map2 = Stashmap();
+      map2.merge(map);
+
+      expect(map2).to.have.property('length', 4);
+
+    });
+
+  });
+
+  //
+  //
   describe('#forEach()', function(){
     //
     //
