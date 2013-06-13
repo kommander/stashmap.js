@@ -154,6 +154,46 @@ describe('Stashmap', function(){
 
     });
 
+    //
+    //
+    it('should merge keys correctly', function(){
+      var map = new Stashmap();
+      map.set('a', 1);
+      map.set('b', 2);
+      
+      var map2 = Stashmap();
+      map2.set('a', 1);
+      map2.set('b', 2);
+      map2.merge(map);
+
+      expect(map2).to.have.property('length', 2);
+      expect(map2.keys).to.have.property('length', 2);
+    });
+
+    //
+    //
+    it('should take a merge function which can return the merge result', function(){
+      var map = Stashmap();
+      map.set('a', [1]);
+      map.set('b', [2]);
+      
+      var map2 = Stashmap();
+      map2.set('a', [2]);
+      map2.set('b', [3]);
+      
+      map.merge(map2, function(left, right) {
+        return left.concat(right);
+      });
+
+      expect(map).to.have.property('length', 2);
+      var val1 = map.get('a');
+      expect(val1).to.have.property(0, 1);
+      expect(val1).to.have.property(1, 2);
+      var val2 = map.get('b');
+      expect(val2).to.have.property(0, 2);
+      expect(val2).to.have.property(1, 3);
+    });
+
   });
 
   //
