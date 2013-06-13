@@ -194,6 +194,22 @@ describe('Stashmap', function(){
       expect(val2).to.have.property(1, 3);
     });
 
+    //
+    //
+    it('should merge with correct length', function(){
+      var map = Stashmap();
+      map.set('a', [1]);
+      
+      var map2 = Stashmap();
+      map2.set('b', [2]);
+      map2.set('c', [3]);
+      
+      map.merge(map2);
+
+      expect(map).to.have.property('length', 3);
+      
+    });
+
   });
 
   //
